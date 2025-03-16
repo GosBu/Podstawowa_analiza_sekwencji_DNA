@@ -37,7 +37,7 @@ def liczenie_nukleotydow(sekwencja):
 # Wywołanie funkcji dla każdej sekwencji z pliku
 for i, seq in enumerate(lista_sekwencji):
     print(f"\nPrzetwarzam sekwencję: {i+1}: {seq},\n\nID sekwencji: {seq_records.id}") 
-    print("\nDługosć sekwencji:", len(seq_records))
+    print("\nDługosć sekwencji:", len(seq))
     
     a, c, g, t, gc = liczenie_nukleotydow(seq) 
     
@@ -49,18 +49,16 @@ for i, seq in enumerate(lista_sekwencji):
     print(f"\nIlosć wystąpień par GC: {gc}")
     
 # Procentowe wystąpienie danego nukleotydu
-for i, seq in enumerate(lista_sekwencji):
-    procent_a = (a / len(seq_records)) * 100
-    procent_c = (c / len(seq_records)) * 100
-    procent_g = (g / len(seq_records)) * 100
-    procent_t = (t / len(seq_records)) * 100
-    procent_par_gc = gc / len(seq_records) * 100
+    procent_a = (a / len(seq)) * 100
+    procent_c = (c / len(seq)) * 100
+    procent_g = (g / len(seq)) * 100
+    procent_t = (t / len(seq)) * 100
+    procent_par_gc = gc / len(seq) * 100
 
     print(f"\nZawartosć procentowa nukleotydów\nA: {procent_a:.2f}%\nC: {procent_c:.2f}%\nG: {procent_g:.2f}%\nT: {procent_t:.2f}%")
     print(f"\nZawartosć procentowa par GC:\n{procent_par_gc:.2f}%")
 
 # Pierwsze wystąpienie pary GC
-for i, seq in enumerate(lista_sekwencji):
     lokalizacja_sekwencji_gc = seq.find("GC")   
     print("\nIndeks pierwszego wystąpienia pary GC: ", lokalizacja_sekwencji_gc)
 
