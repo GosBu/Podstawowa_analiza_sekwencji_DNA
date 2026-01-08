@@ -8,11 +8,11 @@ Created on Sun Mar 16 15:48:09 2025
 # Otwórz plik z sekwencjami DNA
 from Bio import SeqIO
 
-for seq_records in SeqIO.parse("plik_z_sekwencjami.txt", "fasta"):
+for seq_records in SeqIO.parse("sequences.txt", "fasta"):
     print("\nPlik gotowy do pracy")
 
 try:                                            # sprawdzenie czy plik istnieje
-    with open("plik_z_sekwencjami.txt", "r") as plik:
+    with open("sequences.txt", "r") as plik:
         zawartosc = plik.read()
 except FileNotFoundError:
     print("Nie znaleziono pliku z sekwencjami DNA")
@@ -21,7 +21,7 @@ except FileNotFoundError:
 # Zapisanie sekwencji z pliku jako lista
 lista_sekwencji = []
 
-for seq_records in SeqIO.parse("plik_z_sekwencjami.txt", "fasta"):
+for seq_records in SeqIO.parse("sequences.txt", "fasta"):
     lista_sekwencji.append(seq_records.seq)
 
 
@@ -70,7 +70,7 @@ import pandas as pd
 dane = []
 
 # Przetwarzanie sekwencji i zapis do listy
-for i, seq_record in enumerate(SeqIO.parse("plik_z_sekwencjami.txt", "fasta")):
+for i, seq_record in enumerate(SeqIO.parse("sequences.txt", "fasta")):
     seq = str(seq_record.seq)
     a, c, g, t, gc = liczenie_nukleotydow(seq)
 
